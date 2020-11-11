@@ -31,9 +31,9 @@ class ResourceManager
 
 		ResourceManager& operator=(const ResourceManager& rm) //kopiujsacy operator przypisania
 		{
-       // if (rm(!= nullptr)) {
+        if (res != NULL) {
 			delete res;
-        //}
+        }
         if (&rm == this) {
         }
             res = new Resource(*(rm.res));
@@ -42,9 +42,9 @@ class ResourceManager
 
 		ResourceManager& operator=(ResourceManager&& rm)  //przenoszacy operator przypisania
 		{ 
-		//if (rm(!= nullptr)) {
+		if (res != NULL) {
 			delete res;
-		//}
+		}
             res=rm.res;
             rm.res=nullptr;
             return *this;
