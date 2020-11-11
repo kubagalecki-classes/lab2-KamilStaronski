@@ -15,7 +15,7 @@ class ResourceManager
 
         ~ResourceManager()//destruktor
 		{ 
-			detele res;
+			delete res;
 		}
 
         ResourceManager(const ResourceManager& rm)//konstruktor kopiujacy 
@@ -31,9 +31,9 @@ class ResourceManager
 
 		ResourceManager& operator=(const ResourceManager& rm) //kopiujsacy operator przypisania
 		{
-        if (rm(!= nullptr)) {
-			delete rm;
-        }
+       // if (rm(!= nullptr)) {
+			delete res;
+        //}
         if (&rm == this) {
         }
             res = new Resource(*(rm.res));
@@ -42,13 +42,13 @@ class ResourceManager
 
 		ResourceManager& operator=(ResourceManager&& rm)  //przenoszacy operator przypisania
 		{ 
-		if (rm(!= nullptr)) {
-			delete rm;
-		}
+		//if (rm(!= nullptr)) {
+			delete res;
+		//}
             res=rm.res;
-            rm.res=nullptrL;
+            rm.res=nullptr;
             return *this;
 		}
 
-		double get() { return r->get(); } 
+		double get() { return res->get(); } 
 };
