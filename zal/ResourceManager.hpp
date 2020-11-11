@@ -50,5 +50,5 @@ class ResourceManager
             return *this;
 		}
 
-		double get() { return r->get(); } // sprawdzić
+		double get() { return r->get(); } 
 };
